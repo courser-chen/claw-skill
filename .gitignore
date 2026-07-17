@@ -1,0 +1,14 @@
+# 配置文件中包含敏感信息，不提交到版本控制
+config.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE
+.idea/
+*.iml
+
+# 测试
+test_sync.py

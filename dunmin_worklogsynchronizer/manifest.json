@@ -1,0 +1,72 @@
+{
+  "name": "DunminWorklogSynchronizer",
+  "description": "从 OpenProject 同步指定用户和项目的工时及条目到指定的 Redmine 用户和项目，或查询 OpenProject 项目的信息和成员",
+  "version": "1.0.0",
+  "permissions": ["network"],
+  "dependencies": ["requests"],
+  "function": [
+    {
+      "name": "sync_tasks",
+      "description": "从 OpenProject 同步任务到 Redmine",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "opUserLogin": {
+            "type": "string",
+            "description": "OpenProject 源用户的登录名 (User Login Name)"
+          },
+          "opProjectId": {
+            "type": "string",
+            "description": "OpenProject 源项目名称或标识符 (Project Name/Identifier)"
+          },
+          "redmineUserLogin": {
+            "type": "string",
+            "description": "Redmine 目标用户的登录名 (User Login Name)"
+          },
+          "redmineProjectId": {
+            "type": "string",
+            "description": "Redmine 目标项目的 ID"
+          },
+          "startDate": {
+            "type": "string",
+            "description": "同步数据的开始日期，格式为 YYYY-MM-DD（例如：2024-01-01）"
+          }
+        },
+        "required": ["opUserLogin", "opProjectId", "redmineUserLogin", "redmineProjectId", "startDate"]
+      }
+    },
+    {
+      "name": "get_tasks",
+      "description": "查询 OpenProject 的任务或工作包",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "opUserLogin": {
+            "type": "string",
+            "description": "OpenProject 源用户的登录名 (User Login Name)"
+          },
+          "project_identifier": {
+            "type": "string",
+            "description": "项目名称或标识符 (Project Name/Identifier)"
+          }
+        },
+        "required": ["opUserLogin","project_identifier"]
+      }
+    },
+    {
+      "name": "get_project_members",
+      "description": "查询 OpenProject 项目成员列表",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "project_id": {
+            "type": "integer",
+            "description": "项目 ID (Project ID)"
+          }
+        },
+        "required": ["project_id"]
+      }
+    }
+  ],
+  "handler": "synchronizer.py"
+}
