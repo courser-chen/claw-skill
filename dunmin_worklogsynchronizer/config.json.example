@@ -1,0 +1,10 @@
+{
+  "openproject": {
+    "api_key": "your-openproject-api-key",
+    "base_url": "http://your-openproject-host:port"
+  },
+  "redmine": {
+    "api_key": "your-redmine-api-key",
+    "base_url": "http://your-redmine-host/redmine"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "aliyun": {
+    "access_key_id": "your-access-key-id",
+    "access_key_secret": "your-access-key-secret",
+    "endpoint": "https://cn-hongkong.log.aliyuncs.com"
+  }
+}
